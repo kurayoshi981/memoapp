@@ -1,0 +1,39 @@
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <h2>ろぐいん</h2>
+      </div>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+       <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.label :メール %><br />
+          <%= f.email_field :email, autofocus: true , class: "form-control" ,placeholder: "メールをかいてね"%>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.label :パスワード %><br />
+          <%= f.password_field :password, autocomplete: "off", class: "form-control" ,placeholder: "パスワードをかいてね" %>
+        </div>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= f.label :remember_me %><br />
+            <%= f.check_box :remember_me %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit "ろぐいんする！", class: "btn btn-default" %>
+        </div>
+      </div>
+    <% end %>
+

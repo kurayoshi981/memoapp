@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ひとことにっき</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+
+  <body>
+ <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">ひとことにっき</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+             <% if user_signed_in? %>
+              <button type="button" class="btn btn-default navbar-btn">
+                <%= link_to "ろぐあうと", destroy_user_session_path, method: :delete %></button>
+              <button type="button" class="btn btn-default navbar-btn"><li><a href="new">かく</a></li></button>
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">かてごり<span class="caret"></span> </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <% @categories.each do |category| %>
+                  <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
+                      <% end %>
+
+                </ul>
+              </div>
+           </div>
+      <% else %>
+
+          <button type="button" class="btn btn-default navbar-btn"><%= link_to "ろぐいん", new_user_session_path, class: 'post' %></button>
+          <button type="button" class="btn btn-default navbar-btn"><%= link_to "とうろく", new_user_registration_path, class: 'post' %></button>
+           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">かてごり<span class="caret"></span> </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <% @categories.each do |category| %>
+                  <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
+                      <% end %>
+        </div>
+      <% end %>
+<!-- </a></li> -->
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  <div class="container">
+    <%= yield %>
+  </div>
+  </body>
+</html>

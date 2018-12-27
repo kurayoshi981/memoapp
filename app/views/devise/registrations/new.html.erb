@@ -1,0 +1,39 @@
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <h2>とうろく</h2>
+      </div>
+    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.label :メール %><br />
+        <%= f.email_field :email , class: "form-control" ,placeholder: "メールをかいてね"%>
+      </div>
+    </div>
+
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.label :パスワード %>
+          <% if @validatable %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" , class: "form-control" ,placeholder: "パスワードをかいてね"%>
+        </div>
+      </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.label :もう一度パスワードを書いて %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" , class: "form-control" ,placeholder: "もう一度パスワードをかいてね"%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit "とうろくする！" , class: "btn btn-default"%>
+      </div>
+      <% end %>
+    </div>

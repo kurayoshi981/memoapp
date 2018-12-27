@@ -1,0 +1,22 @@
+<h3>にっき</h3>
+  <% @memos.each do |memo| %>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+
+      <h4><%= memo.title %></h4>
+      <p><%= memo.category.name %></p>
+
+      <% if user_signed_in? && current_user.id == memo.user_id %>
+      <div class="buttons">
+        <a href="/memos/<%= memo.id %>" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
+        <a href="/memos/<%= memo.id %>/edit"><span class="glyphicon glyphicon-edit"></span></a></div>
+       <% end %>
+      </div>
+
+      <div class="panel-body">
+        <%= memo.body %>
+      </div>
+    </div>
+  <% end %>
+</div>
