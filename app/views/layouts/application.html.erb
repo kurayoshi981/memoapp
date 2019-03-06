@@ -40,8 +40,11 @@
            </div>
       <% else %>
 
-          <button type="button" class="btn btn-default navbar-btn"><%= link_to "ろぐいん", new_user_session_path, class: 'post' %></button>
-          <button type="button" class="btn btn-default navbar-btn"><%= link_to "とうろく", new_user_registration_path, class: 'post' %></button>
+          <button type="button" class="btn btn-default navbar-btn">
+            <%= link_to "ろぐいん", new_user_session_path, class: 'post' %></button>
+          <button type="button" class="btn btn-default navbar-btn">
+            <%= link_to "とうろく", new_user_registration_path, class: 'post' %></button>
+
            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">かてごり<span class="caret"></span> </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <% @categories.each do |category| %>

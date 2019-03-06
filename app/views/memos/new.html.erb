@@ -1,16 +1,17 @@
-<h3>かく！</h3>
-  <%= form_tag("/create") do %>
-    <div class="form-group">
-      <%= label_tag "form-title" , "タイトル" %>
-      <%= text_field :memos, :title, id: "form-title" , class: "form-control" , placeholder: "タイトルをかく" %>
-    </div>
-    <div class="form-group">
-      <%= label_tag "form-content" , "内容" %>
-      <%= text_field :memos, :body, id: "form-contents" , class: "form-control" , placeholder: "内容をかく" %>
-    </div>
-    <%= select_tag 'memos[category_id]', options_from_collection_for_select(@categories, :id, :name) %>
+<div class="container">
+  <h3>かく！</h3>
+    <%= form_tag("/create") do %>
+      <div class="form-group">
+        <%= label_tag "form-title" , "タイトル" %>
+        <%= text_field :memos, :title, id: "form-title" , class: "form-control" , placeholder: "タイトルをかく" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag "form-content" , "内容" %>
+        <%= text_field :memos, :body, id: "form-contents" , class: "form-control" , placeholder: "内容をかく" %>
+      </div>
+      <%= select_tag 'memos[category_id]', options_from_collection_for_select(@categories, :id, :name) %>
       <%= submit_tag "Create" , class: "btn btn-primary" %>
-  <% end %>
+    <% end %>
 </div>
 
 
